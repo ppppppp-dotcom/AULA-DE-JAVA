@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class exercicio3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Informe o saldo inicial:");
+        // Corrigido: usando 'scanner' (o objeto) e nome padronizado
+        double saldoInicial = scanner.nextDouble(); 
+        
+        double totalCreditos = 0;
+        double totalDebitos = 0;
+        
+        while (true) {
+            System.out.println("Informe a operação (Ou 0 para sair):");
+            double op = scanner.nextDouble();
+            
+            if (op == 0) break; 
+            
+            if (op > 0) {
+                // Se for positivo, adiciona aos créditos
+                totalCreditos += op;
+            } else {
+                // Se for negativo, adiciona aos débitos (transformando em positivo para somar)
+                totalDebitos += Math.abs(op); 
+            }
+        }
+        
+        // Cálculo da taxa (0,40% = 0.004)
+        double cpmf = totalDebitos * 0.004;
+        double saldoFinal = saldoInicial + totalCreditos - totalDebitos - cpmf;
+        
+        System.out.println("\n--- Resumo da Conta ---");
+        System.out.println("Total de Créditos: " + totalCreditos);
+        System.out.println("Total de Débitos: " + totalDebitos);
+        System.out.println("CPMF paga: " + cpmf);
+        System.out.println("Saldo Final: " + saldoFinal);
+        
+        scanner.close();
+    }
+}
