@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class exercicio1{
+    public static void main(String[] args){
+        ArrayList<String> nomes = new ArrayList<>();
+        
+        nomes.add("Carlos");
+        nomes.add("Bruno");
+        nomes.add("Ana");
+        nomes.add("Fernando");
+        nomes.add("Diego");
+        
+        // Lista criada com 5 nomes
+        
+        nomes.add(5, "Helena");
+        // nome "Helena" adicionado ao final do array
+        
+        nomes.add(0, "Gustavo");
+        // nome "Gustavo" adicionado ao inicio do array
+        
+        
+        if(nomes.contains("Fernando")){
+            System.out.println("Fernando esta na lista.");
+        } else{
+            System.out.println("Fernando não etá na lista.");
+        }
+        // Está confirmando se o nome "Fernando" está no Array ou não.
+        
+        nomes.remove(3);
+        // nome "Ana" removido do Array
+        
+        
+       Collections.sort(nomes);
+       // Collections.sort serve para deixar a lista ordenada em ordem crescente
+       // para fazer em ordem decrescente Collections.sort(nomes, Collections.reverseOrder());
+       
+       nomes.clear();
+       //Essa linha de codigo elimina todos os nomes da lista.
+        
+        
+        System.out.println(nomes);
+        
+        
+        
+    }
+}
