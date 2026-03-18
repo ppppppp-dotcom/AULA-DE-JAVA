@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class exercicio2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        ArrayList<Integer> pares = new ArrayList<>();
+        ArrayList<Integer> impares = new ArrayList<>();
+        int[] numeros = new int[5];
+        
+        System.out.println("Digite os 5 números:");
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Valor " + (i + 1) + ": ");
+            numeros[i] = scanner.nextInt();
+
+            // A LOGICA DEVE FICAR AQUI DENTRO DO FOR
+            if (numeros[i] % 2 == 0) {
+                pares.add(numeros[i]);
+            } else {
+                impares.add(numeros[i]);
+            }
+        }
+        
+        System.out.println("\n--------------");
+        System.out.println("Numeros pares: " + pares);
+        System.out.println("Numeros impares: " + impares);
+        
+        // Corrigido o sinal de + e usando Arrays.toString para imprimir o array fixo
+        System.out.println("Lista completa: " + java.util.Arrays.toString(numeros));
+        
+        scanner.close();
+        System.out.println("\nValores processados com sucesso!");
+    }
+}
