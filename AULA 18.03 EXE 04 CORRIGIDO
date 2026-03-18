@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        // Scanner para entrada de dados
+        Scanner scanner = new Scanner(System.in);
+
+        // Lista que vai armazenar os alunos
+        ArrayList<String> alunos = new ArrayList<>();
+
+        int opcao;
+
+        // Loop principal do menu
+        do {
+            // Exibição do menu
+            System.out.println("\n===== MENU =====");
+            System.out.println("[1] Adicionar aluno");
+            System.out.println("[2] Listar alunos");
+            System.out.println("[3] Buscar aluno");
+            System.out.println("[4] Remover aluno");
+            System.out.println("[5] Sair");
+            System.out.print("Escolha uma opção: ");
+
+            opcao = scanner.nextInt();
+            scanner.nextLine(); // limpar buffer
+
+            switch (opcao) {
+
+                case 1:
+                    // Adicionar aluno
+                    System.out.print("Digite o nome do aluno: ");
+                    String nomeAdicionar = scanner.nextLine();
+
+                    alunos.add(nomeAdicionar); // adiciona na lista
+                    System.out.println("Aluno adicionado com sucesso!");
+                    break;
+
+                case 2:
+                    // Listar alunos
+                    if (alunos.isEmpty()) {
+                        // verifica se a lista está vazia
+                        System.out.println("Nenhum aluno cadastrado.");
+                    } else {
+                        // ordena a lista em ordem crescente
+                        Collections.sort(alunos);
+
+                        System.out.println("Alunos cadastrados:");
+
+                        // percorre a lista e exibe os nomes
+                        for (int i = 0; i < alunos.size(); i++) {
+                            System.out.println((i + 1) + " - " + alunos.get(i));
+                        }
+                    }
+                    break;
+
+                case 3:
+                    // Buscar aluno
+                    System.out.print("Digite o nome do aluno para buscar: ");
+                    String nomeBuscar = scanner.nextLine();
+
+                    // verifica se o nome existe na lista
+                    if (alunos.contains(nomeBuscar)) {
+                        System.out.println("Aluno encontrado!");
+                    } else {
+                        System.out.println("Aluno não encontrado.");
+                    }
+                    break;
+
+                case 4:
+                    // Remover aluno
+                    System.out.print("Digite o nome do aluno para remover: ");
+                    String nomeRemover = scanner.nextLine();
+
+                    // verifica se existe antes de remover
+                    if (alunos.contains(nomeRemover)) {
+                        alunos.remove(nomeRemover);
+                        System.out.println("Aluno removido com sucesso!");
+                    } else {
+                        System.out.println("Aluno não encontrado.");
+                    }
+                    break;
+
+                case 5:
+                    // Encerrar programa
+                    System.out.println("Saindo...");
+                    break;
+
+                default:
+                    // Caso digite opção inválida
+                    System.out.println("Opção inválida!");
+            }
+
+        } while (opcao != 5);
+
+        scanner.close(); // fecha o scanner
+    }
+}
